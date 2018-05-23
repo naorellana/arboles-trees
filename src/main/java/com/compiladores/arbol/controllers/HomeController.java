@@ -4,18 +4,24 @@ package com.compiladores.arbol.controllers;
 
 import com.compiladores.arbol.models.Conectar;
 import com.compiladores.arbol.models.Usuarios;
-import java.io.IOException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.ModelAndView;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+//mapa desde formulario
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HomeController {
@@ -26,31 +32,39 @@ public class HomeController {
         Conectar con=new Conectar();
         this.jdbcTemplate=new JdbcTemplate(con.conectar());
     }
-    @GetMapping("/home")
+    @GetMapping("/inicio")
 	public String init(HttpServletRequest req) {
                 String sql="select * from usuarios order by id desc";
                 List datos=this.jdbcTemplate.queryForList(sql);
 		req.setAttribute("datos",datos);
 		//req.setAttribute("mode", "BOOK_VIEW");
-		return "home";
+		return "index";
 	}
-    @GetMapping("/login")
-	public String log(HttpServletRequest req) {
-            String sql="CREATE TABLE nuevos\n" +
-"( customer_id number(10) NOT NULL,\n" +
-"  customer_name varchar2(50) NOT NULL,\n" +
-"  city varchar2(50)\n" +
-")";
-                jdbcTemplate.execute(sql);
-		return "login";
-	}
-    @GetMapping("/")
+        
+        
+    @GetMapping("/arbol")
     public ModelAndView home()
     {
         ModelAndView mav=new ModelAndView();
         mav.setViewName("arbol_1");
         return mav;
     }
+    
+
+@RequestMapping(value = "/sample", method= RequestMethod.GET)
+public ModelAndView sample(HttpServletRequest request){
+    Enumeration enumeration = request.getParameterNames();
+    Map<String, Object> modelMap = new HashMap<>();
+    while(enumeration.hasMoreElements()){
+        String parameterName = (String) enumeration.nextElement();
+        modelMap.put(parameterName, request.getParameter(parameterName));
+    }
+    ModelAndView modelAndView = new ModelAndView("sample");
+    modelAndView.addObject("parameters", modelMap);
+    return modelAndView;
+}
+
+    
     
     @GetMapping("/prueba")
     public ModelAndView prueba()

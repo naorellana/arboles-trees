@@ -11,11 +11,11 @@ package com.compiladores.arbol.models;
  */
 public class Nodo // Clase Nodo
 { 
-    private int dato;
+    private String dato;
     private Nodo izq;   //Atributos del nodo
     private Nodo der;
 
-    public Nodo(int dato)
+    public Nodo(String dato)
     {
         this.dato = dato;
         izq = null;
@@ -42,12 +42,12 @@ public class Nodo // Clase Nodo
             this.der = der;
     }
 
-    public int getDato()
+    public String getDato()
     {
         return dato;
     }
 
-    public void setDato(int dato)
+    public void setDato(String dato)
     {
             this.dato = dato;
     }

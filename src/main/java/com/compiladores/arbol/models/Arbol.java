@@ -57,7 +57,7 @@ public class Arbol  // CLASE ARBOL
         }
     } 
 
-    public String adicionarNodo(Nodo a, Nodo n)//Agrega un nodo al arbol Ordenado
+    /*public String adicionarNodo(Nodo a, Nodo n)//Agrega un nodo al arbol Ordenado
     {
         if(vacioArbol(a))
         {
@@ -99,7 +99,7 @@ public class Arbol  // CLASE ARBOL
             }           
         }
         return "";
-    } 
+    } */
 
     public void preorden(Nodo a) //realiza el recorrido en preorden de un arbol
     {   
@@ -132,7 +132,7 @@ public class Arbol  // CLASE ARBOL
         }
     }
 
-    public Nodo buscarNodo(Nodo a, int dato)//retorna un nodo el cual contiene un dato que se busca, si no lo encuentra retorna null
+    /*public Nodo buscarNodo(Nodo a, String dato)//retorna un nodo el cual contiene un dato que se busca, si no lo encuentra retorna null
     {
         if(a != null)
         {
@@ -159,7 +159,7 @@ public class Arbol  // CLASE ARBOL
         }
     }
 
-
+*/
     public boolean soloRaiz(Nodo nodo){ // METODO ELIMINAR NODO DEL ARBOL
         if(nodo.getDer()==null && nodo.getIzq()==null ){
             nodo=null;
@@ -167,7 +167,8 @@ public class Arbol  // CLASE ARBOL
         }
         return false;
     }
-    public Nodo EliminarNodo(Nodo nodo, int dato)
+    
+    /*public Nodo EliminarNodo(Nodo nodo, String dato)
     {
         if(soloRaiz(nodo))
         {
@@ -206,7 +207,7 @@ public class Arbol  // CLASE ARBOL
             eliminar = null;
         }
         return nodo;
-    }
+    }*/
   
     public Nodo reemplazar(Nodo nodo)
     {
@@ -233,7 +234,7 @@ public class Arbol  // CLASE ARBOL
       
         return N1;
     }
-    public void cargar() // METODO CARGAR ARBOL
+    /*public void cargar() // METODO CARGAR ARBOL
     {
         adicionarNodo(raiz, new Nodo (10));
         adicionarNodo(raiz, new Nodo (11));
@@ -244,7 +245,7 @@ public class Arbol  // CLASE ARBOL
         adicionarNodo(raiz, new Nodo (3));
         adicionarNodo(raiz, new Nodo (2));
         adicionarNodo(raiz, new Nodo (5));
-    }
+    }*/
 } // Fin Clase ARBOL
 
 
