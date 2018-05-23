@@ -46,13 +46,16 @@ public class Ejemplo {
         //clase arbol para recorridos
         Arbol arbol= new Arbol();//inicializando
         arbol.setRaiz(nodoRaiz);
-        //****recorridos*********
-        System.out.print("In");
-        arbol.inorden(nodoRaiz);
-        System.out.print("Pre");
-        arbol.preorden(nodoRaiz);
-        System.out.print("Pos");
-        arbol.postorden(nodoRaiz);
+        //****recorridos********
+        String orden;
+        orden=arbol.inorden(nodoRaiz);
+        System.out.print("IN: "  +orden);
+        orden=arbol.preorden(nodoRaiz);
+        System.out.print("Pre: "  +orden);
+        orden=arbol.postorden(nodoRaiz);
+        System.out.print("Post: "  +orden);
+        
+        
         System.out.println("\nVer imagen en"+"\n http://2.bp.blogspot.com/-u7RcWPwWkzA/VzAXsc9GuUI/AAAAAAAAA5o/_OsRy2B3jjoWOnPTMyNqPoavIK269WMUwCK4B/s1600/preinon.jpg");
     
         

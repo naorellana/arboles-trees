@@ -100,7 +100,22 @@ public class Arbol  // CLASE ARBOL
         }
         return "";
     } */
-
+String preOrden="", posOrden="", inOrden="";
+    public String preorden(Nodo a) //realiza el recorrido en preorden de un arbol
+    {   
+        //String pre="";
+        if(!vacioArbol(a))
+        {
+            
+            preOrden=preOrden+a.getDato()+ "@";
+            preorden(getIzqArbol(a));
+            preorden(getDerArbol(a));
+        }
+        return preOrden;
+    }
+    //copia de respaldo preorden
+    
+    /*
     public void preorden(Nodo a) //realiza el recorrido en preorden de un arbol
     {   
         if(!vacioArbol(a))
@@ -111,25 +126,29 @@ public class Arbol  // CLASE ARBOL
         }
         
     }
+    */
+    //***********
 
-    public void inorden(Nodo a) //realiza el recorrido en inorden de un arbol
+    public String inorden(Nodo a) //realiza el recorrido en inorden de un arbol
     {
         if(!vacioArbol(a))
         {
             inorden(getIzqArbol(a));
-            System.out.print(a.getDato()+ " ");
+            inOrden=inOrden+(a.getDato()+ "@");
             inorden(getDerArbol(a));
-        }           
+        }    
+        return inOrden;
     }
 
-    public void postorden(Nodo a)//realiza el recorrido en postorden de un arbol
+    public String postorden(Nodo a)//realiza el recorrido en postorden de un arbol
     {
         if(!vacioArbol(a))
         {
             postorden(getIzqArbol(a));
             postorden(getDerArbol(a));
-            System.out.print(a.getDato()+ " ");
+            posOrden=posOrden+(a.getDato()+ "@");
         }
+        return posOrden;
     }
 
     /*public Nodo buscarNodo(Nodo a, String dato)//retorna un nodo el cual contiene un dato que se busca, si no lo encuentra retorna null

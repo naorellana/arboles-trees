@@ -45,40 +45,50 @@ public ModelAndView pruebasAr(HttpServletRequest request){
         String parameterName = (String) enumeration.nextElement();
         modelMap.put(parameterName, request.getParameter(parameterName));
     }
+     String preOrden="", inOrden="", posOrden="";
+    
     //procesando arbolito
-     Nodo nodoRaiz= new Nodo("1"); //raiz del nodoRaiz
-        
-        Nodo nodoIzq= new Nodo("2");//nodos/arbol de la izquiera
-        Nodo nodoDer= new Nodo("3");//nodo/arbol de la derechanodoDer
+     Nodo nodoRaiz= new Nodo(modelMap.get("Lv0Nodo1").toString()); //raiz del nodoRaiz
+     
+        Nodo nodoIzq= new Nodo(modelMap.get("Lv1Nodo1").toString());//nodos/arbol de la izquiera
+        Nodo nodoDer= new Nodo(modelMap.get("Lv1Nodo2").toString());//nodo/arbol de la derechanodoDer
         
         //añadiendo arbol/nodos izquierdo y derechoa la raiz
         nodoRaiz.setIzq(nodoIzq);
         nodoRaiz.setDer(nodoDer);
         
         //agregando sus nodos Izquierdos
-        nodoIzq.setIzq(new Nodo("4"));
-        nodoIzq.setDer(new Nodo("5"));
+        nodoIzq.setIzq(new Nodo(modelMap.get("Lv2Nodo1").toString()));
+        nodoIzq.setDer(new Nodo(modelMap.get("Lv2Nodo2").toString()));
         //nodos para el 5
-        nodoIzq.getDer().setIzq(new Nodo("10"));
+        nodoIzq.getDer().setIzq(new Nodo(modelMap.get("Lv3Nodo3").toString()));
         
         //nodos para el 4
-        nodoIzq.getIzq().setDer(new Nodo("9"));
-        nodoIzq.getIzq().setIzq(new Nodo("8"));
+        nodoIzq.getIzq().setDer(new Nodo(modelMap.get("Lv3Nodo2").toString()));
+        nodoIzq.getIzq().setIzq(new Nodo(modelMap.get("Lv3Nodo1").toString()));
         
         //agregando sus nodos
-        nodoDer.setDer(new Nodo("7"));
-        nodoDer.setIzq(new Nodo("6"));
-        
-        
+        nodoDer.setDer(new Nodo(modelMap.get("Lv2Nodo4").toString()));
+        nodoDer.setIzq(new Nodo(modelMap.get("Lv2Nodo3").toString()));
         
         
         
         //clase arbol para recorridos
-        Arbol arbol= new Arbol();//inicializando
+       Arbol arbol= new Arbol();//inicializando
         arbol.setRaiz(nodoRaiz);
+        //obteniendo los recorridos
+        
+        inOrden=arbol.inorden(nodoRaiz);
+        //System.out.print("IN: "  +orden);
+        preOrden=arbol.preorden(nodoRaiz);
+        //System.out.print("Pre: "  +orden);
+        posOrden=arbol.postorden(nodoRaiz);     //*/
     //*************
     ModelAndView modelAndView = new ModelAndView("sample");
     modelAndView.addObject("parameters", modelMap);
+    modelAndView.addObject("preOrden",preOrden );
+    modelAndView.addObject("inOrden", inOrden);
+    modelAndView.addObject("posOrden", posOrden);
     return modelAndView;
 }
 

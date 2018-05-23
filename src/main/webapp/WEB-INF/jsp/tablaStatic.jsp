@@ -35,7 +35,7 @@
    <input type="text" class="form-control" disabled>
    <input type="text" class="form-control" disabled>
    <input type="text" class="form-control" disabled>
-   <input type="text" class="form-control" name="'Lv1Nodo1">
+   <input type="text" class="form-control" name="Lv1Nodo1">
    <input type="text" class="form-control" disabled>
    <input type="text" class="form-control" disabled>
    <input type="text" class="form-control" disabled>
@@ -128,7 +128,7 @@
 
 
 
-<form action="sample" id="" class="visible">
+<form action="pruebasAr" id="" class="visible">
   <div id="tablaArbol" class="visible">
     <div class="input-group" id="fila ">
   <div class="input-group-prepend">
@@ -160,7 +160,7 @@
     <span class="input-group-text" id="">1</span>
   </div>
   <input type="hidden" class="form-control" value="1">
-  <input type="text" class="form-control" name="'Lv1Nodo1">
+  <input type="text" class="form-control" name="Lv1Nodo1">
    <input type="text" class="form-control" name="Lv1Nodo2">
    <input type="text" class="form-control" disabled>
    <input type="text" class="form-control" disabled>

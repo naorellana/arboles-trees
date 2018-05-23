@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"   %>
 <%@ page import="java.util.Map" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="header.jsp" />
@@ -14,9 +15,13 @@
             out.print(" : ");
             out.print(modelMap.get(key));
             out.print("<br />");
-            out.print("Nodo Raiz: "+modelMap.get("Lv0Nodo1"));
+            //out.print("Nodo Raiz: "+modelMap.get("Lv0Nodo1"));
         }
     %>
+    <p>IN: ${inOrden}</p>
+    <p>PRE: ${preOrden}</p>
+    <p>POS: ${posOrden}</p>
+    
 </body>
 </html>
 <jsp:include page="footer.jsp" />
